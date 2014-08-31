@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5.0" type="plugin" group="redshop_payment" method="upgrade">
+    <name>PLG_REDSHOP_PAYMENT_CCAVENUE</name>
+    <version>1.0</version>
+    <creationDate>June 2013</creationDate>
+    <author>Aryavarta Software</author>
+    <authorEmail>support@aryavartasoftware.com</authorEmail>
+    <copyright>Aryavarta Software</copyright>
+    <license>GNU General Public License v2</license>
+    <description>PLG_REDSHOP_PAYMENT_CCAVENUE_DESCRIPTION</description>
+    <files>
+        <filename plugin="ccavenue">ccavenue.php</filename>
+    </files>
+    <languages>
+      <language tag="en-GB">language/en-GB/en-GB.plg_redshop_payment_ccavenue.ini</language>
+      <language tag="en-GB">language/en-GB/en-GB.plg_redshop_payment_ccavenue.sys.ini</language>
+    </languages>
+    <config addfieldpath="/administrator/components/com_redshop/elements">
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="merchant_id" type="text" default="" label="PLG_REDSHOP_PAYMENT_CCAVENUE_MERCHANT_ID"
+                       description=" PLG_REDSHOP_PAYMENT_CCAVENUE_MERCHANT_ID_DESC"/>
+                <field name="security_token" type="text" default="" label="PLG_REDSHOP_PAYMENT_CCAVENUE_SECURITY_TOKEN"
+                       description="PLG_REDSHOP_PAYMENT_CCAVENUE_SECURITY_TOKEN_DESC"/>
+                <field name="verify_status" type="sql"
+                       query="SELECT order_status_code AS st_value, order_status_name AS st_title FROM #__redshop_order_status"
+                       key_field="st_value" value_field="st_title" default="C"
+                       label="PLG_REDSHOP_PAYMENT_CCAVENUE_VERIFY_STATUS"
+                       description="PLG_REDSHOP_PAYMENT_CCAVENUE_VERIFY_STATUS_DESC" />
+                <field name="invalid_status" type="sql"
+                       query="SELECT order_status_code AS st_value, order_status_name AS st_title FROM #__redshop_order_status"
+                       key_field="st_value" value_field="st_title" default="P"
+                       label="PLG_REDSHOP_PAYMENT_CCAVENUE_INVALID_STATUS"
+                       description="PLG_REDSHOP_PAYMENT_CCAVENUE_INVALID_STATUS_DESC" />
+                <field name="capture_status" type="sql"
+                       query="SELECT order_status_code AS st_value, order_status_name AS st_title FROM #__redshop_order_status"
+                       key_field="st_value" value_field="st_title" default="S" label="PLG_REDSHOP_PAYMENT_CCAVENUE_CAPTURE_STATUS"
+                       description="PLG_REDSHOP_PAYMENT_CCAVENUE_CAPTURE_STATUS_DESC" />d
+            </fieldset>
+        </fields>
+    </config>
+</extension>
